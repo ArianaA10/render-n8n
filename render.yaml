@@ -41,10 +41,7 @@ services:
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
 
-      - key: EXECUTIONS_PROCESS
-        value: main
-
       - key: N8N_RUNNERS_ENABLED
         value: "true"
 
-    dockerCommand: n8n start
+    dockerCommand: ""
