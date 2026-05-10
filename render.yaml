@@ -1,0 +1,50 @@
+services:
+  - type: web
+    name: n8n
+    env: docker
+    plan: free
+    autoDeploy: true
+
+    healthCheckPath: /
+
+    envVars:
+      - key: N8N_HOST
+        value: 0.0.0.0
+
+      - key: N8N_PORT
+        value: 5678
+
+      - key: N8N_PROTOCOL
+        value: https
+
+      - key: NODE_ENV
+        value: production
+
+      - key: GENERIC_TIMEZONE
+        value: America/Bogota
+
+      - key: TZ
+        value: America/Bogota
+
+      - key: WEBHOOK_URL
+        sync: false
+
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+
+      - key: N8N_BASIC_AUTH_USER
+        sync: false
+
+      - key: N8N_BASIC_AUTH_PASSWORD
+        sync: false
+
+      - key: N8N_ENCRYPTION_KEY
+        generateValue: true
+
+      - key: EXECUTIONS_PROCESS
+        value: main
+
+      - key: N8N_RUNNERS_ENABLED
+        value: "true"
+
+    dockerCommand: n8n start
